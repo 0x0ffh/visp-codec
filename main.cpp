@@ -9,9 +9,6 @@
 #include <math.h>
 #include <stdexcept>
 #include <algorithm>
-#include "types.h"
-#include "state_machine.h"
-#include "encoder.h"
 typedef unsigned char  UC;
 typedef unsigned short US;
 typedef unsigned int   UI;
