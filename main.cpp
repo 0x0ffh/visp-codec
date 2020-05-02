@@ -59,7 +59,6 @@ State_Machine::State_Machine(int bit_count) : state_number(bit_count), previous_
     if (general_table[0] == 0) {
         for (int i = 0; i < 256; ++i) {
             general_table[i] = 32768 / (i + i + 3);
-            std::cout << general_table[i] << "\n";
         }
     }
 }
@@ -172,7 +171,16 @@ void Encoder::alignment() {
 
 int main(int argc, char** argv) {
     if (argc != 4 || (argv[1][0] != 'c' && argv[1][0] != 'd')) {
-        printf("Vector Integer State Prediction Codec");
+        printf("\n"
+         "Vector Integer State Prediction Codec\n\n"
+         "HOW TO USE:\n"
+         "\n"
+         " PROGRAM_NAME -MODE[SWITCHES] INPUT OUTPUT\n"
+         "\n"
+         "    -MODE:\n"
+         "      -c = to compress\n"
+         "      -d = to decompress\n"
+         "\n");
         exit(1);
     }
     clock_t start = clock();
@@ -211,6 +219,7 @@ int main(int argc, char** argv) {
         coder.encode(0);
         coder.alignment();
     }
-    printf("Input file name: %s\nOutput file name: %s\n\nInpute size: %ld bytes\nOutput size: %ld bytes\n\nTime: %1.2f s.\n\n",argv[2], argv[3], ftell(in), ftell(out), ((double)clock() - start) / CLOCKS_PER_SEC);
+    printf("Result:\nInput file name: %s\nOutput file name: %s\n\nInpute size: %ld bytes\nOutput size: %ld bytes\n\nTime: %1.2f s.\n\n",
+           argv[2], argv[3], ftell(in), ftell(out), ((double)clock() - start) / CLOCKS_PER_SEC);
     return 0;
 }
