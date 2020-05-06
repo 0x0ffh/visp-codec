@@ -177,9 +177,9 @@ int main(int argc, char** argv) {
          "\n"
          " PROGRAM_NAME -MODE[SWITCHES] INPUT OUTPUT\n"
          "\n"
-         "    -MODE:\n"
-         "      -c = to compress\n"
-         "      -d = to decompress\n"
+         "    MODE:\n"
+         "      c = to compress\n"
+         "      d = to decompress\n"
          "\n");
         exit(1);
     }
