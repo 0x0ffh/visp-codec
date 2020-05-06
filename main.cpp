@@ -208,6 +208,7 @@ int main(int argc, char** argv) {
                 coder.encode((byte >> i) & 1);
         }
         coder.encode(0);
+        coder.alignment();
     } else {
         Encoder coder(DECODE_DATA, in);
         while (coder.decode()) {
